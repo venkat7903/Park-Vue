@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Bgimage from "./Bgimage";
 import Slider from "./slider/Slider";
 import MissionSection from "./MissionSection";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import Featuresex from "./Featuresex";
 
 const HomePage = () => {
@@ -30,22 +30,34 @@ const HomePage = () => {
             </p>
             <div className="mt-[150px] ml-[200px] text-black flex space-x-10">
               <div className="w-[500px] h-[300px] bg-white bg-opacity-90 shadow-md  rounded-xl">
-                <h1 className="text-xl font-bold text-center mt-20">Book your parking slot now</h1>
-                <p className="text-lg ml-5">Book your parking slot now and enjoy unlimited prizes and offers</p>
+                {/* <span class="relative flex ml-[470px] mt-4 h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+                </span> */}
+                <h1 className="text-xl font-bold text-center mt-16">
+                  Book your parking slot now
+                </h1>
+                <p className="text-lg ml-5">
+                  Book your parking slot now and enjoy unlimited prizes and
+                  offers
+                </p>
                 <Link to="/parkingpage">
                   <button className="bg-orange-400 text-white font-bold  w-[200px] p-2 rounded-2xl ml-[150px]">
                     Book Now
-
                   </button>
                 </Link>
               </div>
               <div className="w-[500px] h-[300px] bg-white bg-opacity-90 shadow-md  rounded-xl">
-                <h1 className="text-xl font-bold text-center mt-20">Do you have free unused space?</h1>
-                <p className="text-lg ml-5">List that place on park vue and earn money from that unused assets</p>
+                <h1 className="text-xl font-bold text-center mt-20">
+                  Do you have free unused space?
+                </h1>
+                <p className="text-lg ml-5">
+                  List that place on park vue and earn money from that unused
+                  assets
+                </p>
                 <Link to="/listings">
                   <button className="bg-orange-400 text-white font-bold  w-[200px] p-2 rounded-2xl ml-[150px]">
                     List Now
-
                   </button>
                 </Link>
               </div>
@@ -53,8 +65,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="my-10">
-        <Featuresex />
-
+          <Featuresex />
         </div>
         <MissionSection />
         <div className="container ml-[200px] mt-20">

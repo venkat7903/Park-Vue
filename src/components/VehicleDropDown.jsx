@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const Dropdown = (props) => {
-  const [selectedOption, setSelectedOption] = useState('');
-
+const VehicleDropDown = (props) => {
+  const [selectedOption, setSelectedOption] = useState("");
 
   const handleSelectChange = (event) => {
     const selectedValue = event.target.value;
@@ -11,16 +10,16 @@ const Dropdown = (props) => {
   };
 
   return (
-    <div >
+    <div>
       <select
         value={selectedOption}
         onChange={handleSelectChange}
         className="px-4 py-2 border border-gray-300 rounded-md bg-gray-100"
       >
-        <option value="">{props.heading}</option>
-        {props.elements.map((element,index) => (
-            <option key={index} value={element}>{element}</option>
-        ))}
+        <option value="">Select a Vehicle Type</option>
+        <option value="2 wheeler">2 wheeler</option>
+        <option value="4 wheeler">4 wheeler</option>
+        
       </select>
       {selectedOption && (
         <p className="mt-2">Selected option: {selectedOption}</p>
@@ -29,4 +28,4 @@ const Dropdown = (props) => {
   );
 };
 
-export default Dropdown;
+export default VehicleDropDown;

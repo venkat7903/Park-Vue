@@ -3,6 +3,7 @@ import bg from "./image.jpg";
 import Listingsfeatures from "./Listingsfeatures";
 import Hostingprocess from "./Hostingprocess";
 import Bgimage from "../Bgimage";
+import { Link } from "react-router-dom";
 
 const ListingHome = () => {
   const realb =
@@ -28,9 +29,11 @@ const ListingHome = () => {
           <h1 className="w-1/3 text-[2.5rem] text-white font-bold">
             List Your Parking Spot
           </h1>
-          <button className="bg-orange-400 px-4 w-[10rem] mt-2 text-white font-bold h-[30px]">
-            Get Started
-          </button>
+          <Link to="/listingpage">
+            <button className="bg-orange-400 px-4 w-[10rem] mt-2 text-white font-bold h-[30px]">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
       <div>
