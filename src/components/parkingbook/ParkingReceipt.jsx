@@ -26,7 +26,7 @@ const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
       {/* <div className="h-[700px] flex flex-col justify-center items-center w-[450px] bg-gray-700"> */}
         
 
-        <div className="bg-white h-[600px] w-[400px]">
+        <div className="bg-white h-[570px] w-[400px]">
           <div className="h-[60px] bg-orange-400">
           <h1 className="font-bold text-3xl text-white pt-2 ml-2">ParkVue</h1>
            {/* <h3 className="font-bold text-md ml-2 text-orange-500 pb-2">
