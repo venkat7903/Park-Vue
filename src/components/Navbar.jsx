@@ -10,7 +10,7 @@ const Navbar = () => {
             <a href='/' className="text-orange-500 text-[2rem] font-bold">ParkVue</a>
           </div>
           <div className="flex">
-            <Link to="/" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">Home</Link>
+            <Link to="/" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium ">Home</Link>
             <Link to="/listings" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">List Your Space</Link>
             <Link to="/parkingpage" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">Book a Slot</Link>
           </div>

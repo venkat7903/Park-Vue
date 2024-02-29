@@ -34,7 +34,7 @@ const HomePage = () => {
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
                 </span> */}
-                <h1 className="text-xl font-bold text-center mt-16">
+                <h1 className="text-xl font-bold text-center mt-20">
                   Book your parking slot now
                 </h1>
                 <p className="text-lg ml-5">

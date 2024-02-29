@@ -1,5 +1,7 @@
 import React from 'react';
-
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-10">
@@ -17,9 +19,9 @@ const Footer = () => {
           <div className="mb-6">
             <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-gray-400 transition duration-300"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" className="text-gray-300 hover:text-gray-400 transition duration-300"><i className="fab fa-twitter"></i></a>
-              <a href="#" className="text-gray-300 hover:text-gray-400 transition duration-300"><i className="fab fa-instagram"></i></a>
+              <a href="#" className="text-gray-300 hover:text-gray-400 transition duration-300 text-xl"><FaSquareFacebook /></a>
+              <a href="#" className="text-gray-300 hover:text-gray-400 transition duration-300 text-xl "><FaSquareXTwitter /></a>
+              <a href="#" className="text-gray-300 hover:text-gray-400 transition duration-300 text-xl"><FaLinkedin /></a>
             </div>
           </div>
         </div>
