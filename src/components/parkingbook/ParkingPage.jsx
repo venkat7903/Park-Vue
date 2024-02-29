@@ -13,6 +13,7 @@ const bg2 = "https://wallpaperaccess.com/full/4327493.jpg";
 
 const ParkingPage = () => {
   const [selectedValue, setSelectedValue] = useState("");
+  const [selectedSubValue, setSelectedSubValue] = useState("");
   const [selectedVehicle, setSelectedVehicle] = useState("");
   const [newDate, setNewDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -39,6 +40,10 @@ const ParkingPage = () => {
 
   const handleSelect = (selectedOption) => {
     setSelectedValue(selectedOption);
+    console.log(selectedOption);
+  };
+  const handleSubSelect = (selectedOption) => {
+    setSelectedSubValue(selectedOption);
     console.log(selectedOption);
   };
   const handleVehicle = (selectedOption) => {
@@ -91,9 +96,11 @@ const ParkingPage = () => {
                 Where do you want to park?
               </h1>
               <Dropdown
+                location = {true}
                 heading="Choose your city"
                 elements={locations}
                 onSelect={handleSelect}
+                onSelectSub={handleSubSelect}
               />
               <h1 className="font-bold text-xl my-2">Select vehicle type</h1>
               <VehicleDropDown onSelect={handleVehicle} />
@@ -125,7 +132,6 @@ const ParkingPage = () => {
       </div>
 
       <Bgimage
-        Link1="hello"
         bg={bg}
         heading="Do You have a free Space?"
         text="Start earning up to 10,000/month from your unused parking space. Whether you’d like to rent your driveway during working hours or an underground space in an apartment block all month long, ParkingPal will help you find your perfect motorist."

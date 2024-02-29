@@ -25,7 +25,7 @@ const Bgimage = (props) => {
             </button>
           </Link>
         ) : (
-          <Link to="/listing">
+          <Link to="/listings">
             <button className="bg-orange-500 text-white w-[200px] p-3 text-lg font-bold rounded-md">
               {props.button}
             </button>

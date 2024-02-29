@@ -1,5 +1,5 @@
 import React from "react";
-
+import qr from "./Qr.png"
 const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
   const handleOnClose = (e) => {
     if (e.target.id === "container") onClose();
@@ -26,7 +26,7 @@ const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
       {/* <div className="h-[700px] flex flex-col justify-center items-center w-[450px] bg-gray-700"> */}
         
 
-        <div className="bg-white h-[570px] w-[400px]">
+        <div className="bg-white h-[660px] w-[400px]">
           <div className="h-[60px] bg-orange-400">
           <h1 className="font-bold text-3xl text-white pt-2 ml-2">ParkVue</h1>
            {/* <h3 className="font-bold text-md ml-2 text-orange-500 pb-2">
@@ -34,8 +34,9 @@ const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
           </h3> */}
         </div> 
           <div className=" p-2"><h1 className="text-3xl text-center font-bold ">E-receipt</h1></div>
-          <hr className="font-bold" />
+          <hr className=" border-gray-400" />
           <div className="container  pl-[40px] py-4  text-xl flex flex-col space-y-3 font-semibold">
+            <img src={qr} height="100px" width="100px" className="ml-[95px]" />
             <h1>
               Trasaction Date : {" "}
                <span className="font-bold">{formattedDate}</span>
@@ -67,7 +68,7 @@ const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
               status : <span className="text-green-400 font-bold">paid</span>
             </h1>
             </div>
-            <hr />
+            <hr className=" border-gray-400" />
             <div className="p-3">
               <p className="text-gray-500 ">Thanks for choosing parkvue</p>
               <p className="text-gray-500 ">Enjoy Your safe and Secure parking</p>
