@@ -101,7 +101,7 @@ const NearestLocationFinder = () => {
     };
 
     return (
-        <div className="white p-6 top-0 rounded-lg shadow-md">
+        <div className="white p-6 top-0 h-screen rounded-lg shadow-md">
             {userLat && userLon && nearestLocation ? (
                 <div>
                     <p className="text-orange-500 text-xl font-bold mb-4 ">Nearest parking spot is at : {nearestLocation.name}</p>
