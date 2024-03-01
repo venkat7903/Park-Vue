@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
 import bg from "./newimg.jpg";
 import ParkingFeatures from "./ParkingFeatures";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Bgimage from "../Bgimage";
 import ParkingReceipt from "./ParkingReceipt";
 import VehicleDropDown from "../VehicleDropDown";
-
+import UserContext from "../../Context/UserContext";
 
 const bg2 = "https://wallpaperaccess.com/full/4327493.jpg";
 
@@ -21,9 +21,9 @@ const ParkingPage = () => {
   const [showModal, setShowModal] = useState(false);
   const handleonClose = () => setShowModal(false);
   const calcPrice = (newD, endD) => {
-    if(!newD || !endD){
-      newD = new Date("0000-00-00000:00:00")
-      endD = new Date("0000-00-00000:00:00")
+    if (!newD || !endD) {
+      newD = new Date("0000-00-00000:00:00");
+      endD = new Date("0000-00-00000:00:00");
     }
     const startTimestamp = newD.getTime();
     const endTimestamp = endD.getTime();
@@ -35,7 +35,6 @@ const ParkingPage = () => {
     const hourlyPrice = roundedDifferenceHours * 10;
 
     setPrice(hourlyPrice);
-
   };
 
   const handleSelect = (selectedOption) => {
@@ -70,11 +69,33 @@ const ParkingPage = () => {
 
   const locations = ["Kakinada", "Hyderabad", "Vijayawada", "Rajahmundry"];
   const vehicleTypes = ["2 Wheeler", "4 Wheeler"];
-  let bgcolor = "bg-orange-400"
+  let bgcolor = "bg-orange-400";
   if (price) {
-    bgcolor = "bg-green-400"
-
+    bgcolor = "bg-green-400";
   }
+  const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    console.log(user); // Log user whenever it changes
+  }, [user]);
+
+  const handleModal = () => {
+    setShowModal(true);
+
+    const newUserObject = {
+      price: price,
+      sublocation: selectedSubValue,
+      location: selectedValue,
+      vehicle: selectedVehicle,
+      start: newDate.toLocaleDateString(),
+      end: endDate.toLocaleDateString(),
+    };
+    const updatedUser = Array.isArray(user) ? user : [];
+
+    setUser([...updatedUser, newUserObject]);
+
+    console.log(user);
+  };
 
   return (
     <div>
@@ -96,7 +117,7 @@ const ParkingPage = () => {
                 Where do you want to park?
               </h1>
               <Dropdown
-                location = {true}
+                location={true}
                 heading="Choose your city"
                 elements={locations}
                 onSelect={handleSelect}
@@ -114,12 +135,14 @@ const ParkingPage = () => {
 
             <button
               onClick={() => calcPrice(newDate, endDate)}
-              className={`bg-orange-400 w-3/4 h-[50px] text-white font-bold text-lg mx-10 mb-2 mt-3 ${newDate && endDate ? "block" : "hidden"}`}
+              className={`bg-orange-400 w-3/4 h-[50px] text-white font-bold text-lg mx-10 mb-2 mt-3 ${
+                newDate && endDate ? "block" : "hidden"
+              }`}
             >
               Calculate Price
             </button>
             <button
-              onClick={() => {setShowModal(true)}}
+              onClick={handleModal}
               className={`${bgcolor} w-3/4 h-[50px] text-white font-bold text-lg mx-10 mt-3 mb-2`}
             >
               {price ? `pay ${price}` : "Book Now"}

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import bg from "./image.jpg";
 import Listingsfeatures from "./Listingsfeatures";
 import Hostingprocess from "./Hostingprocess";
 import Bgimage from "../Bgimage";
 import { Link } from "react-router-dom";
+import UserContext from "../../Context/UserContext";
 
 const ListingHome = () => {
+  const {user} = useContext(UserContext)
   const realb =
     "https://live.staticflickr.com/3562/3773138341_cd2ac78a6e_b.jpg";
   const style = {
@@ -15,6 +17,8 @@ const ListingHome = () => {
     backgroundPosition: "center",
   };
   console.log(window.screen.width)
+  console.log(user)
+
 
   return (
     <div>

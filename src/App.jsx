@@ -8,24 +8,24 @@ import ListingHome from "./components/listings/ListingHome";
 import EmptyTest from "./components/EmptyTest";
 import ListingPage from "./components/listings/ListingPage";
 import ParkingReceipt from "./components/parkingbook/ParkingReceipt";
-import SelectedContext from "./Context/selectedContext";
 import { useState } from "react";
+import PreviousBooking from "./components/parkingbook/PreviousBooking";
+import NearestLocationFinder from "./components/parkingbook/NearestLocationFinder";
 
 function App() {
-  const [selectedList, setSelectedList] = useState([{}]);
   
   return (
-    <SelectedContext.Provider value={{ selectedList, setSelectedList }}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/parkingpage" element={<ParkingPage />} />
         <Route path="/emptytest" element={<EmptyTest />} />
         <Route path="/listingpage" element={<ListingPage />} />
         <Route path="/parkingreceipt" element={<ParkingReceipt />} />
+        <Route path="/bookinghistory" element={<PreviousBooking />} />
+        <Route path="/nearestlocation" element={<NearestLocationFinder />} />
 
         <Route path="/listings" element={<ListingHome />} />
       </Routes>
-    </SelectedContext.Provider>
   );
 }
 

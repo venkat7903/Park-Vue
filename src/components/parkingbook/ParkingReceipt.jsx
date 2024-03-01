@@ -1,11 +1,15 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import qr from "./Qr.png";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import UserContext  from "../../Context/UserContext";
 
 const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
+  
+
   const handleOnClose = (e) => {
     if (e.target.id === "container") onClose();
+    
   };
 
   const containerRef = useRef(null);
@@ -48,6 +52,7 @@ const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
       });
     });
   };
+
   var currentDate = new Date();
 
   var day = currentDate.getDate();
@@ -60,6 +65,7 @@ const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
   var formattedDate = formattedDay + "/" + formattedMonth + "/" + year;
 
   if (!visible) return null;
+
   return (
     <div
       id="container"

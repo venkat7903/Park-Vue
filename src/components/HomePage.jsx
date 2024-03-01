@@ -25,7 +25,7 @@ const HomePage = () => {
             <h1 className="text-3xl font-bold text-center">
               Welcome to ParkVue
             </h1>
-            <p className="text-lg mt-3 text-white font-bold text-center bg-orange-300 rounded-full py-4 px-6 ml-8 xl:ml-[500px] w-full xl:w-[500px]">
+            <p className="text-lg mt-3 text-white font-bold text-center bg-orange-400 rounded-full py-4 px-6 ml-8 xl:ml-[500px] w-full xl:w-[500px]">
               Book your parking slots with ease!
             </p>
 
