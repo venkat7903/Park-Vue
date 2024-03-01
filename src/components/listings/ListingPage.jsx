@@ -10,6 +10,8 @@ const ListingPage = () => {
   const [slots, setSlots] = useState(""); 
   const [cost, setCost] = useState(""); 
   const [selectedDays, setSelectedDays] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -41,6 +43,22 @@ const ListingPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate a delay for submission process
+    setTimeout(() => {
+      // Reset form fields and state after submission
+      setName("");
+      setLocation("");
+      setMobile("");
+      setEmail("");
+      setSlots("");
+      setCost("");
+      setSelectedDays([]);
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 3000); // 3 seconds delay
+
     // You can perform any action with the form data here, such as sending it to a server
     console.log("Name:", name);
     console.log("Location:", location);
@@ -61,8 +79,14 @@ const ListingPage = () => {
     <div className="h-full w-screen relative" style={style}>
       <div className='container mx-auto w-screen backdrop-blur-sm flex justify-center items-center'>
         <div className='max-w-md bg-white bg-opacity-85 p-10  m-10'>
-        <h1 className='font-bold text-3xl text-center mb-4'>Share Your Location</h1>
-      <form onSubmit={handleSubmit}>
+          <h1 className='font-bold text-3xl text-center mb-4'>Share Your Location</h1>
+          {submitted ? (
+            <div>
+            <p className="text-center text-orange-500 text-3xl font-bold mb-4 capitalize">your listing is under verification. We will get back to you soon!</p>
+            <img src='https://th.bing.com/th/id/OIP.8BTlGwpEtpLO62kOW9y0CQHaEx?rs=1&pid=ImgDetMain' height={400} width={400}/>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block mb-2">Your Name:</label>
           <input 
@@ -153,8 +177,9 @@ const ListingPage = () => {
           Submit
         </button>
       </form>
+          )}
         </div>
-    </div>
+      </div>
     </div>
   );
 }
