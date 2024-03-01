@@ -25,11 +25,12 @@ const HomePage = () => {
             <h1 className="text-3xl font-bold text-center">
               Welcome to ParkVue
             </h1>
-            <p className="text-lg mt-3 text-white font-bold text-center bg-orange-300 rounded-full py-4 px-6 ml-[500px] w-[500px]">
+            <p className="text-lg mt-3 text-white font-bold text-center bg-orange-300 rounded-full py-4 px-6 ml-8 xl:ml-[500px] w-full xl:w-[500px]">
               Book your parking slots with ease!
             </p>
-            <div className="mt-[150px] ml-[200px] text-black flex space-x-10">
-              <div className="w-[500px] h-[300px] bg-white bg-opacity-90 shadow-md  rounded-xl">
+
+            <div className="mt-[150px] ml-[200px] text-black flex space-x-10 max-xl:flex-col max-xl:mt-[30px]">
+              <div className="w-[500px] h-[300px] bg-white bg-opacity-90 shadow-md   rounded-xl">
                 {/* <span class="relative flex ml-[470px] mt-4 h-3 w-3">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
@@ -47,7 +48,7 @@ const HomePage = () => {
                   </button>
                 </Link>
               </div>
-              <div className="w-[500px] h-[300px] bg-white bg-opacity-90 shadow-md  rounded-xl">
+              <div className="w-[500px] h-[300px] bg-white bg-opacity-90 shadow-md max-xl:mt-6 max-xl:mr-[150px] rounded-xl">
                 <h1 className="text-xl font-bold text-center mt-20">
                   Do you have free unused space?
                 </h1>

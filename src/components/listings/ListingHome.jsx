@@ -14,6 +14,7 @@ const ListingHome = () => {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   };
+  console.log(window.screen.width)
 
   return (
     <div>

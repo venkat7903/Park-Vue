@@ -117,13 +117,13 @@ const ParkingReceipt = ({ visible, onClose, start, end, loc, veh, paid }) => {
       <div className="mb-[570px]">
         <button
           onClick={handleDownloadPDF}
-          className="download-button bg-blue-500 text-white font-bold py-2 px-4 rounded mt-4 ml-4"
+          className="download-button bg-orange-500 text-white font-bold py-2 px-4 rounded mt-4 ml-4"
         >
           Download PDF
         </button>
         <button
           onClick={handleDownloadPNG}
-          className="download-button bg-blue-500 text-white font-bold py-2 px-4 rounded mt-4 ml-4"
+          className="download-button bg-orange-500 text-white font-bold py-2 px-4 rounded mt-4 ml-4"
         >
           Download PNG
         </button>
