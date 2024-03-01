@@ -4,7 +4,7 @@ import L from 'leaflet';
 
 const NearestLocationFinder = () => {
     const predefinedLocations = [
-        { name: 'Aditya college', lat: 17.087498288732764, lon: 82.0617061462663 },
+        { name: 'Aditya Engineering college', lat: 17.087498288732764, lon: 82.0617061462663 },
         { name: 'RajaGopal Center', lat: 16.833398604394237, lon: 82.03457513869574 },
         { name: 'Surya cinemax', lat: 16.83292507343081, lon: 82.03322528583993 }
     ];
@@ -97,7 +97,7 @@ const NearestLocationFinder = () => {
         <div className="bg-orange-200 p-6 top-0 rounded-lg shadow-md">
             {userLat && userLon && nearestLocation ? (
                 <div>
-                    <p className="text-orange-900 text-lg font-semibold mb-4">The nearest location is: {nearestLocation.name}</p>
+                    <p className="text-orange-900 text-lg font-semibold mb-4">Nearest parking spot is near : {nearestLocation.name}</p>
                     <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600" onClick={handleNavigate}>Navigate</button>
                     <div id="map" className="mt-6" style={{ height: '400px' }}></div>
                 </div>

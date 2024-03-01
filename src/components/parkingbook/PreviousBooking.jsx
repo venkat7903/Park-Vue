@@ -5,7 +5,13 @@ const PreviousBooking = () => {
   const { user } = useContext(UserContext);
 
   if (!user || !Array.isArray(user)) {
-    return <div>No previous bookings available</div>;
+    return <div className="h-screen w-screen flex justify-center items-center bg-gray-100">
+    <div className="p-8 bg-white rounded-lg shadow-lg text-center">
+        <p className="text-3xl font-semibold text-gray-800 mb-4">No previous bookings available</p>
+        <p className="text-lg text-gray-600">Please check back later or make a new booking.</p>
+    </div>
+</div>
+
   }
 
   // Reverse the user array

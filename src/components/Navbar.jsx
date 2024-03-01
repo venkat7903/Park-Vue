@@ -10,11 +10,12 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <a href='/' className="text-orange-500 text-[2rem] font-bold"><img src={logo} height={150} width={150} /></a>
           </div>
-          <div className="flex">
+          <div className="flex pl-[200px]">
             <Link to="/" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium ">Home</Link>
             <Link to="/listings" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">List Your Space</Link>
             <Link to="/parkingpage" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">Book a Slot</Link>
-            <Link to="/bookinghistory" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">Book history</Link>
+            <Link to="/bookinghistory" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">parking history</Link>
+            <Link to="/nearestlocation" className="hover:animate-pulse px-3 py-2 rounded-md text-sm font-medium">get Nearest Parking</Link>
           </div>
         </div>
       </div>
