@@ -12,9 +12,9 @@ const NearestLocationFinder = () => {
     const [nearestLocation, setNearestLocation] = useState(null);
     const [userLat, setUserLat] = useState(null);
     const [userLon, setUserLon] = useState(null);
+    const [mapLoaded, setMapLoaded] = useState(false); // New state variable to track map loading
 
     useEffect(() => {
-
         const getUserLocation = () => {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
@@ -34,7 +34,6 @@ const NearestLocationFinder = () => {
             }
         };
 
-        
         const findNearestLocation = (lat, lon) => {
             let minDistance = Number.MAX_VALUE;
             let nearestLocation = null;
@@ -48,10 +47,8 @@ const NearestLocationFinder = () => {
             });
 
             setNearestLocation(nearestLocation);
-            showMap(lat, lon);
         };
 
-        // Haversine formula
         const haversine = (lat1, lon1, lat2, lon2) => {
             const R = 6371; 
             const dLat = (lat2 - lat1) * Math.PI / 180;  
@@ -69,21 +66,31 @@ const NearestLocationFinder = () => {
 
     }, []);
 
+    useEffect(() => {
+        if (userLat && userLon && nearestLocation) {
+            showMap(userLat, userLon); // Call showMap only when all necessary data is available
+        }
+    }, [userLat, userLon, nearestLocation]);
+
     const showMap = (lat, lon) => {
-        const map = L.map('map').setView([lat, lon], 13);
+        if (!mapLoaded) { // Check if map is not already loaded
+            const map = L.map('map').setView([lat, lon], 13);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
 
-        L.marker([lat, lon]).addTo(map)
-            .bindPopup('Your Location')
-            .openPopup();
-
-        if (nearestLocation) {
-            L.marker([nearestLocation.lat, nearestLocation.lon]).addTo(map)
-                .bindPopup(nearestLocation.name)
+            L.marker([lat, lon]).addTo(map)
+                .bindPopup('Your Location')
                 .openPopup();
+
+            if (nearestLocation) {
+                L.marker([nearestLocation.lat, nearestLocation.lon]).addTo(map)
+                    .bindPopup(nearestLocation.name)
+                    .openPopup();
+            }
+
+            setMapLoaded(true); // Set mapLoaded to true after the map is loaded
         }
     };
 
@@ -94,10 +101,10 @@ const NearestLocationFinder = () => {
     };
 
     return (
-        <div className="bg-orange-200 p-6 top-0 rounded-lg shadow-md">
+        <div className="white p-6 top-0 rounded-lg shadow-md">
             {userLat && userLon && nearestLocation ? (
                 <div>
-                    <p className="text-orange-900 text-lg font-semibold mb-4">Nearest parking spot is near : {nearestLocation.name}</p>
+                    <p className="text-orange-500 text-xl font-bold mb-4 ">Nearest parking spot is at : {nearestLocation.name}</p>
                     <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600" onClick={handleNavigate}>Navigate</button>
                     <div id="map" className="mt-6" style={{ height: '400px' }}></div>
                 </div>
