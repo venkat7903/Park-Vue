@@ -4,7 +4,9 @@ import L from 'leaflet';
 
 const NearestLocationFinder = () => {
     const predefinedLocations = [
-        { name: 'srmt', lat: 16.99866550323828, lon: 82.24318146078677 },
+        // { name: 'srmt', lat: 16.99866550323828, lon: 82.24318146078677 },
+        { name: 'V9 restaurent', lat: 17.0838110194955, lon: 82.06193806658548 },
+        { name: 'Aditya Engineering College', lat: 17.087498288732764, lon: 82.0617061462663 },
         { name: 'RajaGopal Center', lat: 16.833398604394237, lon: 82.03457513869574 },
         { name: 'Surya cinemax', lat: 16.83292507343081, lon: 82.03322528583993 }
     ];

@@ -76,9 +76,16 @@ const ParkingPage = () => {
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    console.log(user); // Log user whenever it changes
-  }, [user]);
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
+  // Save user data to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
   const handleModal = () => {
     setShowModal(true);
 
@@ -172,5 +179,4 @@ const ParkingPage = () => {
     </div>
   );
 };
-
 export default ParkingPage;
