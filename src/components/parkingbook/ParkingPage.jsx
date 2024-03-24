@@ -105,8 +105,8 @@ const ParkingPage = () => {
   };
 
   return (
-    <div>
-      <div className="h-screen w-screen relative" style={style}>
+    <div className="">
+      <div className="pb-[20px] min-h-screen w-screen relative" style={style}>
         <div className="container flex flex-col flex-end ml-[600px] pt-[40px]">
           <h1 className="text-5xl font-bold text-white">Pick A location</h1>
           <p className="text-lg text-gray-400 mt-2">
